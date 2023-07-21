@@ -3,14 +3,14 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { ValidationPipe } from '@nestjs/common';
-import { authGuard } from './app.vkAuthGuard';
+import { AuthGuard } from './app.vkAuthGuard';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @UseGuards(authGuard)
+  @UseGuards(AuthGuard)
   getHello() {
     return 'Выигрыш есть, можно поесть';
   }

@@ -4,12 +4,14 @@ import * as crypto from 'crypto';
 
 
 @Injectable()
-export class authGuard implements CanActivate {
+export class AuthGuard implements CanActivate {
     canActivate(context: ExecutionContext): boolean {
 
-        const request = context.switchToHttp().getRequest();
+        const request = context.switchToHttp().getRequest<Request>();
         
-        const url = 'https://example.com/?vk_user_id=494075&vk_app_id=6736218&vk_is_app_user=1&vk_are_notifications_enabled=1&vk_language=ru&vk_access_token_settings=&vk_platform=android&sign=htQFduJpLxz7ribXRZpDFUH-XEUhC9rBPTJkjUFEkRA';
+        // ?vk_user_id=494075&vk_app_id=6736218&vk_is_app_user=1&vk_are_notifications_enabled=1&vk_language=ru&vk_access_token_settings=&vk_platform=android&sign=htQFduJpLxz7ribXRZpDFUH-XEUhC9rBPTJkjUFEkRA
+        
+        const url = request.url;
         const queryParams : any[] = [];
         let sign : string;
         const secretKey = 'wvl68m4dR1UpLrVRli';
