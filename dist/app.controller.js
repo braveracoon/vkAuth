@@ -18,12 +18,12 @@ let AppController = exports.AppController = class AppController {
         this.appService = appService;
     }
     getHello() {
-        return 'Выигрышь есть, можно поесть';
+        return 'Выигрыш есть, можно поесть';
     }
 };
 __decorate([
     (0, common_1.Get)(),
-    (0, common_1.UseGuards)(app_vkAuthGuard_1.authGuard),
+    (0, common_1.UseGuards)(app_vkAuthGuard_1.AuthGuard),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)

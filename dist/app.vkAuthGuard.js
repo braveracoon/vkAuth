@@ -6,13 +6,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.authGuard = void 0;
+exports.AuthGuard = void 0;
 const common_1 = require("@nestjs/common");
 const crypto = require("crypto");
-let authGuard = exports.authGuard = class authGuard {
+let AuthGuard = exports.AuthGuard = class AuthGuard {
     canActivate(context) {
         const request = context.switchToHttp().getRequest();
-        const url = 'https://example.com/?vk_user_id=494075&vk_app_id=6736218&vk_is_app_user=1&vk_are_notifications_enabled=1&vk_language=ru&vk_access_token_settings=&vk_platform=android&sign=htQFduJpLxz7ribXRZpDFUH-XEUhC9rBPTJkjUFEkRA';
+        const url = request.url;
         const queryParams = [];
         let sign;
         const secretKey = 'wvl68m4dR1UpLrVRli';
@@ -44,7 +44,7 @@ let authGuard = exports.authGuard = class authGuard {
         return paramHash === sign;
     }
 };
-exports.authGuard = authGuard = __decorate([
+exports.AuthGuard = AuthGuard = __decorate([
     (0, common_1.Injectable)()
-], authGuard);
+], AuthGuard);
 //# sourceMappingURL=app.vkAuthGuard.js.map
